@@ -1,3 +1,4 @@
+#window 0 is now window 1
 bind c screen 1
 bind ^c screen 1
 bind 0 select 10
@@ -7,14 +8,20 @@ term screen-256color
 
 startup_message off
 
+#screen info
 backtick 1 5 5 true
 termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
 hardstatus string "screen (%n: %t)"
 caption string "%{= kw}%Y-%m-%d;%c %{= kw}%-Lw%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+Lw%1`"
 caption always
 
+#mouse scrolling
 termcapinfo xterm* ti@:te@
 
 vbell off
 
 altscreen on
+
+bindkey ^[[1;5D prev  # change window with ctrl-left
+bindkey ^[[1;5C next  # change window with ctrl-right
+
